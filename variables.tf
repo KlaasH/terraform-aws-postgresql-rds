@@ -16,6 +16,12 @@ variable "allocated_storage" {
   description = "Storage allocated to database instance"
 }
 
+variable "max_allocated_storage" {
+  default     = 32
+  type        = number
+  description = "Max storage for auto-allocation"
+}
+
 variable "engine_version" {
   default     = "11.5"
   type        = string
