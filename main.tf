@@ -45,14 +45,14 @@ resource "aws_security_group" "postgresql" {
 #
 resource "aws_db_instance" "postgresql" {
   allocated_storage               = var.allocated_storage
-  max_allocated_storage           = var.max_allocated_storage
+  max_allocated_storage           = var.max_allocated_storage ? var.max_allocated_storage : null
   engine                          = "postgres"
   engine_version                  = var.engine_version
   identifier                      = var.database_identifier
   snapshot_identifier             = var.snapshot_identifier
   instance_class                  = var.instance_type
   storage_type                    = var.storage_type
-  iops                            = var.iops
+  iops                            = var.iops ? var.iops : null
   name                            = var.database_name
   password                        = var.database_password
   username                        = var.database_username
